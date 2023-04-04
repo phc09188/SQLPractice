@@ -1,0 +1,9 @@
+/*
+set @변수로 count null 값 처리하는 방법
+처음 배웠다.
+*/
+SET @HOUR := -1;
+SELECT (@HOUR := @HOUR +1) AS HOUR,
+(SELECT COUNT(*) FROM ANIMAL_OUTS WHERE HOUR(DATETIME) = @HOUR) AS COUNT 
+FROM ANIMAL_OUTS
+WHERE @HOUR < 23
